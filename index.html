@@ -1459,7 +1459,7 @@ ${formData.observations ? `📝 Observações: ${formData.observations}` : ''}
                     formDataToSend.append(key, data[key]);
                 });
 
-                fetch('https://script.google.com/macros/s/AKfycbyssPGO8dHbtlcthXCqKNeLLn_nTGUniVa0bINzu-mY9zp0q5vr7emc9KHnbiD1l-c0Kw/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbyf4xIq6qOjc-gmrVyH-tvzds8FNPjSDurTsiVgxfbp4_P-fZSayrYtetGQH6OCpBX1/exec', {
                     method: 'POST',
                     body: formDataToSend
                 }).then(response => {
