@@ -10,7 +10,7 @@
     <meta property="og:url" content="https://www.oticascarol.com.br">
     <meta name="theme-color" content="#003057">
     <title>Óticas Carol - Agende Seu Atendimento | Vamos até Você</title>
-    
+
     <!-- FACEBOOK PIXEL -->
     <script>
         !function(f,b,e,v,n,t,s)
@@ -766,7 +766,7 @@
 
     <!-- ============ INTRODUCTION SECTION ============ -->
     <div class="introduction-section" id="introductionSection">
-        
+
         <!-- HERO BANNER -->
         <section class="hero-banner">
             <div class="hero-banner-container">
@@ -1130,7 +1130,7 @@
     </div>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/5511925745445?text=Olá,%20gostaria%20de%20informações%20sobre%20o%20atendimento%20domiciliar%20da%20Óticas%20Carol" 
+    <a href="https://wa.me/5511925745445?text=Olá,%20gostaria%20de%20informações%20sobre%20o%20atendimento%20domiciliar%20da%20Óticas%20Carol"
        target="_blank" class="floating-whatsapp" title="Enviar mensagem no WhatsApp">
         💬
     </a>
@@ -1202,7 +1202,7 @@
                 formData.city = this.value;
                 document.getElementById('cityDisplay').textContent = this.value;
                 neighborhoodGroup.style.display = this.value ? 'block' : 'none';
-                
+
                 if (this.value && neighborhoods[this.value]) {
                     neighborhoodSelect.innerHTML = '<option value="">Selecione o bairro</option>';
                     neighborhoods[this.value].forEach(nb => {
@@ -1233,7 +1233,7 @@
         function renderDateOptions() {
             const container = document.getElementById('dateOptions');
             container.innerHTML = '';
-            
+
             appointmentDates.forEach((date, index) => {
                 const div = document.createElement('div');
                 div.className = 'date-option';
@@ -1256,7 +1256,7 @@
         function renderTimeSlots() {
             const container = document.getElementById('timeSlots');
             container.innerHTML = '';
-            
+
             timeSlots.forEach((slot, index) => {
                 const div = document.createElement('div');
                 div.className = 'radio-item';
@@ -1313,7 +1313,7 @@
                 alert('Por favor, selecione cidade e bairro');
                 return;
             }
-            
+
             const coverageAreas = ['Mauá', 'Ribeirão Pires', 'Santo André'];
             if (!coverageAreas.includes(formData.city)) {
                 alert('Desculpe, não atendemos essa região ainda.');
@@ -1327,7 +1327,7 @@
         function validatePersonal() {
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
-            
+
             if (!name || !phone) {
                 alert('Por favor, preencha nome e telefone');
                 return;
@@ -1347,7 +1347,7 @@
         function validateAddress() {
             const address = document.getElementById('address').value.trim();
             const number = document.getElementById('number').value.trim();
-            
+
             if (!address || !number) {
                 alert('Por favor, preencha endereço e número');
                 return;
@@ -1357,7 +1357,7 @@
             formData.number = number;
             formData.complement = document.getElementById('complement').value;
             formData.locationType = document.querySelector('input[name="locationType"]:checked')?.value || '';
-            
+
             const needs = [];
             document.querySelectorAll('input[name="needs"]:checked').forEach(cb => {
                 needs.push(cb.value);
@@ -1452,33 +1452,23 @@ ${formData.observations ? `📝 Observações: ${formData.observations}` : ''}
                 timestamp: new Date().toISOString()
             };
 
-            // Salvar em localStorage (backup local)
-            try {
-                let leads = JSON.parse(localStorage.getItem('oticas_carol_leads') || '[]');
-                leads.push(data);
-                localStorage.setItem('oticas_carol_leads', JSON.stringify(leads));
-                console.log('✅ Lead salvo localmente:', data.fullName);
-            } catch (e) {
-                console.log('⚠️ Aviso:', e.message);
-            }
-
-            // Tentar salvar em Google Sheets (opcional - não bloqueia se falhar)
+            // Salvar em Google Sheets via Apps Script
             try {
                 const formDataToSend = new FormData();
                 Object.keys(data).forEach(key => {
                     formDataToSend.append(key, data[key]);
                 });
 
-                fetch('https://script.google.com/macros/s/AKfycbzjA9ZPh46ApePkvYGFgdUClanAVrKkKnZyLUxzjOJWxqcMJUyMFe1MM11gqkpkqc4B/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbyssPGO8dHbtlcthXCqKNeLLn_nTGUniVa0bINzu-mY9zp0q5vr7emc9KHnbiD1l-c0Kw/exec', {
                     method: 'POST',
                     body: formDataToSend
-                }).then(() => {
-                    console.log('✅ Dados sincronizados com Google Sheets');
-                }).catch(() => {
-                    console.log('ℹ️ Google Sheets indisponível - dados salvos localmente');
+                }).then(response => {
+                    console.log('✅ Dados salvos na planilha com sucesso!');
+                }).catch(error => {
+                    console.log('⚠️ Erro ao salvar:', error);
                 });
             } catch (e) {
-                console.log('ℹ️ Google Sheets sync não disponível');
+                console.log('⚠️ Erro:', e.message);
             }
         }
 
