@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Óticas Carol - Vamos até você! Agendamento online de atendimento domiciliar em Mauá e Ribeirão Pires.">
+    <meta property="og:title" content="Óticas Carol - Vamos até Você">
+    <meta property="og:description" content="Agende sua visita gratuita. Especialista leva óculos até você.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.oticascarol.com.br">
+    <meta name="theme-color" content="#003057">
+    <title>Óticas Carol - Agende Seu Atendimento | Vamos até Você</title>
+    
+    <!-- FACEBOOK PIXEL -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1005457565239540');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1005457565239540&ev=PageView&noscript=1" /></noscript>
+
+    <!-- GOOGLE ANALYTICS 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2683ZNXYN1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2683ZNXYN1');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --carol-blue: #003057;
+            --carol-blue-light: #005691;
+            --carol-yellow: #FFCC00;
+            --carol-gray: #F4F4F4;
+            --text-gray: #4F5E6F;
+            --border-color: #E5E7EB;
+            --success-color: #10B981;
+            --shadow: 0 2px 8px rgba(0, 48, 87, 0.08);
+            --shadow-lg: 0 10px 25px rgba(0, 48, 87, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+            flex: 1;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--carol-blue);
+        }
+
+        .logo-text .carol {
+            color: var(--carol-yellow);
+        }
+
+        .logo-tagline {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--carol-blue);
+            font-weight: 600;
+        }
+
+        .header-cta {
+            background: var(--carol-yellow);
+            color: var(--carol-blue);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* HIDDEN BY DEFAULT - SHOWN ON STEP FORMS */
+        .introduction-section {
+            display: block;
+        }
+
+        .introduction-section.hidden {
+            display: none;
+        }
+
+        /* ============ INTRODUCTION SECTION ============ */
+
+        /* HERO BANNER */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--carol-blue) 0%, #1a4d6d 100%);
+            color: white;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--carol-yellow);
+            border-radius: 50%;
+            opacity: 0.05;
+        }
+
+        .hero-banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--carol-yellow);
+            color: var(--carol-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            display: none;
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        .btn-hero {
+            background: var(--carol-yellow);
+            color: var(--carol-blue);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.3);
+        }
+
+        /* BENEFITS SECTION */
+        .benefits-section {
+            padding: 3rem 1rem;
+            background: white;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--carol-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            background: var(--carol-gray);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--carol-yellow);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefit-card h3 {
+            color: var(--carol-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 3rem 1rem;
+            background: var(--carol-gray);
+        }
+
+        .how-it-works-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-number {
+            width: 50px;
+            height: 50px;
+            background: var(--carol-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-item h4 {
+            color: var(--carol-blue);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA BUTTON CENTERED */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: white;
+        }
+
+        .cta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-text {
+            color: var(--carol-blue);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-cta-large {
+            background: var(--carol-yellow);
+            color: var(--carol-blue);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-cta-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.3);
+        }
+
+        /* ============ BOOKING FORM SECTION ============ */
+
+        .booking-section {
+            display: none;
+        }
+
+        .booking-section.active {
+            display: block;
+        }
+
+        .progress-container {
+            background: var(--carol-gray);
+            padding: 1.5rem 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 3px;
+            background: #ddd;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--carol-blue);
+            transition: width 0.5s ease;
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: var(--carol-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .step-subtitle {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--carol-blue);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--carol-blue);
+            box-shadow: 0 0 0 3px rgba(0, 48, 87, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 0.8rem;
+        }
+
+        .checkbox-item:hover,
+        .radio-item:hover {
+            border-color: var(--carol-blue);
+            background: rgba(0, 48, 87, 0.02);
+        }
+
+        .checkbox-item input,
+        .radio-item input {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .location-status {
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .location-status.success {
+            background: #E0F9F7;
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            display: block;
+        }
+
+        .date-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .date-option {
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .date-option:hover {
+            border-color: var(--carol-blue);
+            background: rgba(0, 48, 87, 0.02);
+        }
+
+        .date-option.selected {
+            border-color: var(--carol-blue);
+            background: rgba(0, 48, 87, 0.05);
+        }
+
+        .date-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--carol-blue);
+        }
+
+        .date-label {
+            font-size: 0.75rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+
+        .summary-card {
+            background: var(--carol-gray);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .summary-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--carol-blue);
+        }
+
+        .summary-card-icon {
+            font-size: 1.2rem;
+        }
+
+        .summary-card-content {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .summary-edit {
+            color: var(--carol-blue);
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--carol-yellow);
+            color: var(--carol-blue);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--carol-blue);
+            border: 2px solid var(--carol-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--carol-gray);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1FA854;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .success-message {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            color: var(--carol-blue);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .success-text {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .important-note {
+            background: #FEF3C7;
+            border: 1px solid #FCD34D;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #92400E;
+            line-height: 1.6;
+        }
+
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+            z-index: 99;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-image {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        .required {
+            color: #EF4444;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-text">
+                    <span>ÓTICAS</span> | <span class="carol">CAROL</span>
+                </div>
+                <div class="logo-tagline">Vamos até você</div>
+            </div>
+            <button class="header-cta" id="headerCta" onclick="scrollToForm()">Agendar</button>
+        </div>
+    </header>
+
+    <!-- ============ INTRODUCTION SECTION ============ -->
+    <div class="introduction-section" id="introductionSection">
+        
+        <!-- HERO BANNER -->
+        <section class="hero-banner">
+            <div class="hero-banner-container">
+                <div class="hero-content">
+                    <div class="hero-badge">Exclusivo Mauá e Ribeirão Pires</div>
+                    <h1>Vamos até você!</h1>
+                    <p>Deixe que uma de nossas especialistas leve as opções que você deseja no conforto da sua casa ou escritório.</p>
+                    <button class="btn-hero" onclick="startBooking()">Agendar Visita Gratuita</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section class="benefits-section">
+            <div class="benefits-container">
+                <h2 class="section-title">Por Que Escolher Óticas Carol?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <span class="benefit-icon">💼</span>
+                        <h3>Ótica Completa</h3>
+                        <p>Levamos uma maleta com armações e óculos de sol para você provar.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">👓</span>
+                        <h3>Consultoria Técnica</h3>
+                        <p>Especialista dedicada para indicar a melhor opção para o seu caso.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🏠</span>
+                        <h3>Sem Sair de Casa</h3>
+                        <p>Da escolha ideal até a entrega final no seu endereço.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <span class="benefit-icon">🔒</span>
+                        <h3>Segurança Total</h3>
+                        <p>Profissionais identificados e seguindo todos os protocolos para sua confiança.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section class="how-it-works">
+            <div class="how-it-works-container">
+                <h2 class="section-title">Veja Como É Simples</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-number">1</div>
+                        <h4>Preencha seus dados</h4>
+                        <p>Informe nome, contato e endereço.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">2</div>
+                        <h4>Escolha dia e horário</h4>
+                        <p>Selecione o momento ideal para você.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">3</div>
+                        <h4>Envie seu agendamento</h4>
+                        <p>Confirme o pedido em poucos cliques.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">4</div>
+                        <h4>Especialista separa modelos</h4>
+                        <p>Ela entende seu estilo e leva opções ideais.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-number">5</div>
+                        <h4>Receba em casa</h4>
+                        <p>No dia combinado, ela vai até você.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <p class="cta-text">Pronto para transformar sua experiência?</p>
+                <button class="btn-cta-large" onclick="startBooking()">Agendar Visita Gratuita</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============ BOOKING FORM SECTION ============ -->
+    <div class="booking-section" id="bookingSection">
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 20%"></div>
+            </div>
+            <div class="progress-labels">
+                <span>Local</span>
+                <span>Dados</span>
+                <span>Agenda</span>
+                <span>Fim</span>
+            </div>
+        </div>
+
+        <main>
+            <!-- STEP 1: LOCATION CHECK -->
+            <div class="step active" id="step1">
+                <h2 class="step-title">Verificar Disponibilidade</h2>
+                <p class="step-subtitle">Precisamos confirmar se o seu endereço está em nossa área de cobertura.</p>
+
+                <form id="locationForm">
+                    <div class="form-group">
+                        <label class="form-label">Cidade <span class="required">*</span></label>
+                        <select class="form-select" id="city" required>
+                            <option value="">Selecione a cidade</option>
+                            <option value="Mauá">Mauá</option>
+                            <option value="Ribeirão Pires">Ribeirão Pires</option>
+                            <option value="Santo André">Santo André</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="neighborhoodGroup" style="display: none;">
+                        <label class="form-label">Bairro <span class="required">*</span></label>
+                        <select class="form-select" id="neighborhood" required>
+                            <option value="">Selecione o bairro</option>
+                        </select>
+                    </div>
+
+                    <div class="location-status" id="locationStatus"></div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="backToIntro()">Voltar</button>
+                        <button type="button" class="btn btn-primary" onclick="validateLocation()">Continuar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 2: PERSONAL DATA -->
+            <div class="step" id="step2">
+                <h2 class="step-title">Seus Dados</h2>
+                <p class="step-subtitle">Para personalizar sua visita.</p>
+
+                <form id="personalForm">
+                    <div class="form-group">
+                        <label class="form-label">👤 Informações Pessoais</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nome Completo <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="name" placeholder="Ex: Maria da Silva" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nascimento</label>
+                            <input type="date" class="form-input" id="birthDate">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Já é cliente?</label>
+                            <select class="form-select" id="isCustomer">
+                                <option value="Não">Não</option>
+                                <option value="Sim">Sim</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Telefone (WhatsApp) <span class="required">*</span></label>
+                        <input type="tel" class="form-input" id="phone" placeholder="(11) 99999-9999" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">E-mail</label>
+                        <input type="email" class="form-input" id="email" placeholder="seu@email.com">
+                    </div>
+
+                    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color);">
+
+                    <div class="form-group">
+                        <label class="form-label">Atendimento Infantil (Filho/Filha)?</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="childAppointment">
+                            <label for="childAppointment">Sim, será atendimento infantil</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Possui necessidades / atendimento especial?</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="specialNeeds">
+                            <label for="specialNeeds">Sim, tenho necessidades especiais</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="specialNeedsText" style="display: none;">
+                        <label class="form-label">Descreva sua necessidade:</label>
+                        <textarea class="form-textarea" id="specialNeedsDetails" placeholder="Ex: mobilidade reduzida, etc..."></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="previousStep()">Voltar</button>
+                        <button type="button" class="btn btn-primary" onclick="validatePersonal()">Continuar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 3: ADDRESS & NEEDS -->
+            <div class="step" id="step3">
+                <h2 class="step-title">Localização & Necessidades</h2>
+                <p class="step-subtitle">Complete seus dados de endereço.</p>
+
+                <form id="addressForm">
+                    <div class="form-group">
+                        <label class="form-label">🏠 Endereço em <span id="cityDisplay"></span></label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Logradouro (Rua/Av) <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="address" placeholder="Ex: Av. Barão de Mauá" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Número <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Complemento</label>
+                            <input type="text" class="form-input" id="complement" placeholder="Ex: Apt 12">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Local de Atendimento</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="radio-item">
+                                <input type="radio" name="locationType" id="home" value="Casa">
+                                <label for="home">🏠 Casa</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" name="locationType" id="work" value="Trabalho">
+                                <label for="work">💼 Trabalho</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color);">
+
+                    <div class="form-group">
+                        <label class="form-label">📋 Necessidades</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="needs" value="Óculos de grau">
+                                <label>Óculos de grau</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="needs" value="Óculos Multifocal">
+                                <label>Óculos Multifocal</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="needs" value="Lentes de Contato">
+                                <label>Lentes de Contato</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="needs" value="Óculos de Sol">
+                                <label>Óculos de Sol</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" name="needs" value="Dúvidas">
+                                <label>Dúvidas</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Observações Extras</label>
+                        <textarea class="form-textarea" id="observations" placeholder="Alguma preferência de marca ou estilo?"></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn btn-secondary" onclick="previousStep()">Voltar</button>
+                        <button type="button" class="btn btn-primary" onclick="validateAddress()">Continuar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 4: SCHEDULING -->
+            <div class="step" id="step4">
+                <h2 class="step-title">Agendamento</h2>
+                <p class="step-subtitle">Escolha o melhor momento para receber nossa especialista.</p>
+
+                <div class="form-group">
+                    <label class="form-label">📅 Selecione o Dia</label>
+                    <div class="date-options" id="dateOptions"></div>
+                </div>
+
+                <div class="form-group" id="timeSlotGroup" style="display: none;">
+                    <label class="form-label">⏰ Período de Preferência</label>
+                    <div id="timeSlots"></div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="previousStep()">Voltar</button>
+                    <button type="button" class="btn btn-primary" id="continueBtn" onclick="validateScheduling()" disabled>Continuar</button>
+                </div>
+            </div>
+
+            <!-- STEP 5: SUMMARY -->
+            <div class="step" id="step5">
+                <h2 class="step-title">Resumo do Pedido</h2>
+                <p class="step-subtitle">Confira as informações antes de finalizar.</p>
+
+                <div class="summary-card">
+                    <div class="summary-card-header">
+                        <span class="summary-card-icon">📍</span>
+                        <span>Localização</span>
+                        <a class="summary-edit" style="margin-left: auto;" onclick="jumpToStep(0)">Editar</a>
+                    </div>
+                    <div class="summary-card-content" id="summaryLocation"></div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-card-header">
+                        <span class="summary-card-icon">👤</span>
+                        <span>Cliente</span>
+                        <a class="summary-edit" style="margin-left: auto;" onclick="jumpToStep(1)">Editar</a>
+                    </div>
+                    <div class="summary-card-content" id="summaryClient"></div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-card-header">
+                        <span class="summary-card-icon">📅</span>
+                        <span>Agendamento</span>
+                        <a class="summary-edit" style="margin-left: auto;" onclick="jumpToStep(3)">Editar</a>
+                    </div>
+                    <div class="summary-card-content" id="summaryScheduling"></div>
+                </div>
+
+                <div class="important-note">
+                    <strong>ℹ️ Importante:</strong>
+                    Após confirmar, você será redirecionado para o WhatsApp para enviar os dados a nossa especialista.
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="previousStep()">Voltar</button>
+                    <button type="button" class="btn btn-primary" onclick="sendToWhatsApp()">Confirmar no WhatsApp</button>
+                </div>
+            </div>
+
+            <!-- STEP 6: SUCCESS -->
+            <div class="step" id="step6">
+                <div class="success-message">
+                    <div class="success-icon">✅</div>
+                    <h2 class="success-title">Agendamento Confirmado!</h2>
+                    <p class="success-text">
+                        Obrigado por escolher Óticas Carol!<br><br>
+                        Uma de nossas especialistas entrará em contato em breve pelo WhatsApp ou telefone para confirmar os detalhes da sua visita.
+                    </p>
+                    <a href="https://wa.me/5511925745445" target="_blank" class="btn btn-whatsapp">
+                        💬 Continuar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/5511925745445?text=Olá,%20gostaria%20de%20informações%20sobre%20o%20atendimento%20domiciliar%20da%20Óticas%20Carol" 
+       target="_blank" class="floating-whatsapp" title="Enviar mensagem no WhatsApp">
+        💬
+    </a>
+
+    <script>
+        const neighborhoods = {
+            'Mauá': ["Centro", "Vila Bocaina", "Jardim Guapituba", "Parque São Vicente", "Vila Assis Brasil", "Jardim Zaíra", "Sertãozinho", "Vila Magini"],
+            'Ribeirão Pires': ["Centro", "Jardim Mirante", "Vila Aurora", "Ouro Fino", "Quarta Divisão", "Jardim Alvorada", "Santa Luzia"],
+            'Santo André': ["Centro", "Bairro Jardim", "Campestre", "Vila Assunção", "Vila Alpina", "Parque das Nações", "Camilópolis", "Vila Gilda", "Vila Pires", "Jardim Bela Vista", "Utinga", "Vila Curuçá", "Vila Humaitá", "Jardim Santo André"]
+        };
+
+        const appointmentDates = [
+            { day: 26, month: 'maio', label: 'TER' },
+            { day: 28, month: 'maio', label: 'QUI' },
+            { day: 2, month: 'junho', label: 'TER' },
+            { day: 4, month: 'junho', label: 'QUI' }
+        ];
+
+        const timeSlots = [
+            { label: 'Manhã (08:00 - 12:00)', value: 'Manhã (08:00 - 12:00)' },
+            { label: 'Tarde (13:00 - 17:00)', value: 'Tarde (13:00 - 17:00)' }
+        ];
+
+        let currentStep = 0;
+        let formData = {
+            city: '', neighborhood: '', cep: '',
+            fullName: '', birthDate: '', email: '', phone: '', age: '',
+            address: '', number: '', complement: '',
+            locationType: '', isChildAppointment: false,
+            hasSpecialNeeds: false, specialNeedsDetails: '',
+            needs: [], observations: '',
+            selectedDate: '', selectedTimeSlot: '',
+            isExistingCustomer: 'Não'
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCityListener();
+            initializeCheckboxListeners();
+            renderDateOptions();
+            trackPageView();
+        });
+
+        function startBooking() {
+            document.getElementById('introductionSection').classList.add('hidden');
+            document.getElementById('bookingSection').classList.add('active');
+            document.querySelector('.header-cta').style.display = 'block';
+            window.scrollTo(0, 0);
+            trackEvent('booking_started');
+        }
+
+        function backToIntro() {
+            document.getElementById('introductionSection').classList.remove('hidden');
+            document.getElementById('bookingSection').classList.remove('active');
+            document.querySelector('.header-cta').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        function scrollToForm() {
+            const bookingSection = document.getElementById('bookingSection');
+            bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function initializeCityListener() {
+            const citySelect = document.getElementById('city');
+            const neighborhoodGroup = document.getElementById('neighborhoodGroup');
+            const neighborhoodSelect = document.getElementById('neighborhood');
+
+            citySelect.addEventListener('change', function() {
+                formData.city = this.value;
+                document.getElementById('cityDisplay').textContent = this.value;
+                neighborhoodGroup.style.display = this.value ? 'block' : 'none';
+                
+                if (this.value && neighborhoods[this.value]) {
+                    neighborhoodSelect.innerHTML = '<option value="">Selecione o bairro</option>';
+                    neighborhoods[this.value].forEach(nb => {
+                        const option = document.createElement('option');
+                        option.value = nb;
+                        option.textContent = nb;
+                        neighborhoodSelect.appendChild(option);
+                    });
+                }
+            });
+
+            neighborhoodSelect.addEventListener('change', function() {
+                formData.neighborhood = this.value;
+            });
+        }
+
+        function initializeCheckboxListeners() {
+            document.getElementById('childAppointment').addEventListener('change', function() {
+                formData.isChildAppointment = this.checked;
+            });
+
+            document.getElementById('specialNeeds').addEventListener('change', function() {
+                formData.hasSpecialNeeds = this.checked;
+                document.getElementById('specialNeedsText').style.display = this.checked ? 'block' : 'none';
+            });
+        }
+
+        function renderDateOptions() {
+            const container = document.getElementById('dateOptions');
+            container.innerHTML = '';
+            
+            appointmentDates.forEach((date, index) => {
+                const div = document.createElement('div');
+                div.className = 'date-option';
+                div.innerHTML = `
+                    <div class="date-label">${date.label}</div>
+                    <div class="date-day">${date.day}</div>
+                    <div style="font-size: 0.85rem; color: #999;">de ${date.month}</div>
+                `;
+                div.onclick = function() {
+                    document.querySelectorAll('.date-option').forEach(d => d.classList.remove('selected'));
+                    this.classList.add('selected');
+                    formData.selectedDate = `${date.day}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`;
+                    document.getElementById('timeSlotGroup').style.display = 'block';
+                    renderTimeSlots();
+                };
+                container.appendChild(div);
+            });
+        }
+
+        function renderTimeSlots() {
+            const container = document.getElementById('timeSlots');
+            container.innerHTML = '';
+            
+            timeSlots.forEach((slot, index) => {
+                const div = document.createElement('div');
+                div.className = 'radio-item';
+                div.innerHTML = `
+                    <input type="radio" name="timeSlot" id="slot${index}" value="${slot.value}">
+                    <label for="slot${index}" style="cursor: pointer; margin: 0;">${slot.label}</label>
+                `;
+                div.querySelector('input').addEventListener('change', function() {
+                    formData.selectedTimeSlot = this.value;
+                    document.getElementById('continueBtn').disabled = false;
+                    trackEvent('time_slot_selected', { time: this.value });
+                });
+                container.appendChild(div);
+            });
+        }
+
+        function nextStep() {
+            if (currentStep < 6) {
+                currentStep++;
+                updateStepDisplay();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 0) {
+                currentStep--;
+                updateStepDisplay();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function jumpToStep(stepIndex) {
+            currentStep = stepIndex;
+            updateStepDisplay();
+            window.scrollTo(0, 0);
+        }
+
+        function updateStepDisplay() {
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.remove('active');
+                if (index === currentStep) step.classList.add('active');
+            });
+
+            const totalSteps = 5;
+            const progress = ((currentStep) / totalSteps) * 100;
+            document.querySelector('.progress-fill').style.width = progress + '%';
+
+            if (currentStep === 5) populateSummary();
+        }
+
+        function validateLocation() {
+            if (!formData.city || !formData.neighborhood) {
+                alert('Por favor, selecione cidade e bairro');
+                return;
+            }
+            
+            const coverageAreas = ['Mauá', 'Ribeirão Pires', 'Santo André'];
+            if (!coverageAreas.includes(formData.city)) {
+                alert('Desculpe, não atendemos essa região ainda.');
+                return;
+            }
+
+            trackEvent('location_verified', { city: formData.city });
+            nextStep();
+        }
+
+        function validatePersonal() {
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            
+            if (!name || !phone) {
+                alert('Por favor, preencha nome e telefone');
+                return;
+            }
+
+            formData.fullName = name;
+            formData.phone = phone;
+            formData.email = document.getElementById('email').value;
+            formData.birthDate = document.getElementById('birthDate').value;
+            formData.isExistingCustomer = document.getElementById('isCustomer').value;
+            formData.specialNeedsDetails = document.getElementById('specialNeedsDetails').value;
+
+            trackEvent('personal_data_entered', { name: name });
+            nextStep();
+        }
+
+        function validateAddress() {
+            const address = document.getElementById('address').value.trim();
+            const number = document.getElementById('number').value.trim();
+            
+            if (!address || !number) {
+                alert('Por favor, preencha endereço e número');
+                return;
+            }
+
+            formData.address = address;
+            formData.number = number;
+            formData.complement = document.getElementById('complement').value;
+            formData.locationType = document.querySelector('input[name="locationType"]:checked')?.value || '';
+            
+            const needs = [];
+            document.querySelectorAll('input[name="needs"]:checked').forEach(cb => {
+                needs.push(cb.value);
+            });
+            formData.needs = needs;
+            formData.observations = document.getElementById('observations').value;
+
+            trackEvent('address_entered', { address: address });
+            nextStep();
+        }
+
+        function validateScheduling() {
+            if (!formData.selectedDate || !formData.selectedTimeSlot) {
+                alert('Por favor, selecione data e horário');
+                return;
+            }
+            trackEvent('scheduling_selected', { date: formData.selectedDate });
+            nextStep();
+        }
+
+        function populateSummary() {
+            document.getElementById('summaryLocation').innerHTML = `
+                <strong>${formData.address}</strong><br>
+                ${formData.number}${formData.complement ? ', ' + formData.complement : ''}<br>
+                ${formData.city}, ${formData.neighborhood}<br>
+                <em>${formData.locationType}</em>
+            `;
+
+            document.getElementById('summaryClient').innerHTML = `
+                <strong>👤 ${formData.fullName}</strong><br>
+                Nasc: ${formData.birthDate || 'Não informado'}<br>
+                ☎️ ${formData.phone}<br>
+                📧 ${formData.email || 'Não informado'}<br>
+                <strong>NECESSIDADES:</strong><br>
+                ${formData.needs.join(', ') || 'Não especificado'}
+            `;
+
+            document.getElementById('summaryScheduling').innerHTML = `
+                <strong>📅 ${formData.selectedDate}</strong><br>
+                <strong>⏰ ${formData.selectedTimeSlot}</strong>
+            `;
+        }
+
+        function sendToWhatsApp() {
+            const message = `
+Olá! Gostaria de confirmar meu agendamento:
+
+📍 *LOCALIZAÇÃO*
+${formData.address}, ${formData.number}${formData.complement ? ' - ' + formData.complement : ''}
+${formData.city}, ${formData.neighborhood}
+Local: ${formData.locationType}
+
+👤 *CLIENTE*
+Nome: ${formData.fullName}
+Telefone: ${formData.phone}
+Email: ${formData.email || 'N/A'}
+Data Nascimento: ${formData.birthDate || 'N/A'}
+Cliente há: ${formData.isExistingCustomer}
+
+📋 *NECESSIDADES*
+${formData.needs.join(', ') || 'Não especificado'}
+
+📅 *AGENDAMENTO*
+Data: ${formData.selectedDate}
+Horário: ${formData.selectedTimeSlot}
+
+${formData.observations ? `📝 Observações: ${formData.observations}` : ''}
+            `;
+
+            saveLeadData();
+            trackEvent('booking_confirmed', { customer: formData.fullName });
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/5511925745445?text=${encodedMessage}`, '_blank');
+
+            nextStep();
+        }
+
+        function saveLeadData() {
+            const data = {
+                fullName: formData.fullName,
+                phone: formData.phone,
+                email: formData.email,
+                city: formData.city,
+                neighborhood: formData.neighborhood,
+                address: formData.address,
+                number: formData.number,
+                locationType: formData.locationType,
+                needs: formData.needs.join(', '),
+                selectedDate: formData.selectedDate,
+                selectedTimeSlot: formData.selectedTimeSlot,
+                timestamp: new Date().toISOString()
+            };
+
+            // Salvar em localStorage (backup local)
+            try {
+                let leads = JSON.parse(localStorage.getItem('oticas_carol_leads') || '[]');
+                leads.push(data);
+                localStorage.setItem('oticas_carol_leads', JSON.stringify(leads));
+                console.log('✅ Lead salvo localmente:', data.fullName);
+            } catch (e) {
+                console.log('⚠️ Aviso:', e.message);
+            }
+
+            // Tentar salvar em Google Sheets (opcional - não bloqueia se falhar)
+            try {
+                const formDataToSend = new FormData();
+                Object.keys(data).forEach(key => {
+                    formDataToSend.append(key, data[key]);
+                });
+
+                fetch('https://script.google.com/macros/s/AKfycbzjA9ZPh46ApePkvYGFgdUClanAVrKkKnZyLUxzjOJWxqcMJUyMFe1MM11gqkpkqc4B/exec', {
+                    method: 'POST',
+                    body: formDataToSend
+                }).then(() => {
+                    console.log('✅ Dados sincronizados com Google Sheets');
+                }).catch(() => {
+                    console.log('ℹ️ Google Sheets indisponível - dados salvos localmente');
+                });
+            } catch (e) {
+                console.log('ℹ️ Google Sheets sync não disponível');
+            }
+        }
+
+        function trackPageView() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'page_view', {
+                    'page_title': 'Agendamento Óticas Carol',
+                    'page_location': window.location.href
+                });
+            }
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'ViewContent');
+            }
+        }
+
+        function trackEvent(eventName, data = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, data);
+            }
+            if (typeof fbq !== 'undefined') {
+                fbq('track', eventName === 'booking_confirmed' ? 'Lead' : 'ViewContent');
+            }
+        }
+    </script>
+</body>
+</html>
