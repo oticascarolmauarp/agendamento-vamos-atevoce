@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Óticas Carol - Vamos até você! Agendamento online de atendimento domiciliar em Mauá e Ribeirão Pires.">
+    <meta name="description" content="Óticas Carol - Vamos até você! Agendamento online de atendimento domiciliar em Mauá, Ribeirão Pires e São Bernardo do Campo.">
     <meta property="og:title" content="Óticas Carol - Vamos até Você">
     <meta property="og:description" content="Agende sua visita gratuita. Especialista leva óculos até você.">
     <meta property="og:type" content="website">
@@ -771,7 +771,7 @@
         <section class="hero-banner">
             <div class="hero-banner-container">
                 <div class="hero-content">
-                    <div class="hero-badge">Exclusivo Mauá e Ribeirão Pires</div>
+                    <div class="hero-badge">Exclusivo Mauá, Ribeirão Pires e São Bernardo do Campo</div>
                     <h1>Vamos até você!</h1>
                     <p>Deixe que uma de nossas especialistas leve as opções que você deseja no conforto da sua casa ou escritório.</p>
                     <button class="btn-hero" onclick="startBooking()">Agendar Visita Gratuita</button>
@@ -861,6 +861,7 @@
             <div class="progress-labels">
                 <span>Local</span>
                 <span>Dados</span>
+                <span>Endereço</span>
                 <span>Agenda</span>
                 <span>Fim</span>
             </div>
@@ -880,6 +881,7 @@
                             <option value="Mauá">Mauá</option>
                             <option value="Ribeirão Pires">Ribeirão Pires</option>
                             <option value="Santo André">Santo André</option>
+                            <option value="São Bernardo do Campo">São Bernardo do Campo</option>
                         </select>
                     </div>
 
@@ -916,12 +918,13 @@
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="form-group">
-                            <label class="form-label">Nascimento</label>
-                            <input type="date" class="form-input" id="birthDate">
+                            <label class="form-label">Data de Nascimento <span class="required">*</span></label>
+                            <input type="date" class="form-input" id="birthDate" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Já é cliente?</label>
-                            <select class="form-select" id="isCustomer">
+                            <label class="form-label">Já é cliente? <span class="required">*</span></label>
+                            <select class="form-select" id="isCustomer" required>
+                                <option value="">Selecione</option>
                                 <option value="Não">Não</option>
                                 <option value="Sim">Sim</option>
                             </select>
@@ -934,8 +937,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">E-mail</label>
-                        <input type="email" class="form-input" id="email" placeholder="seu@email.com">
+                        <label class="form-label">E-mail <span class="required">*</span></label>
+                        <input type="email" class="form-input" id="email" placeholder="seu@email.com" required>
                     </div>
 
                     <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--border-color);">
@@ -989,20 +992,20 @@
                             <input type="text" class="form-input" id="number" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Complemento</label>
-                            <input type="text" class="form-input" id="complement" placeholder="Ex: Apt 12">
+                            <label class="form-label">Complemento <span class="required">*</span></label>
+                            <input type="text" class="form-input" id="complement" placeholder="Ex: Apt 12" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">Local de Atendimento</label>
+                        <label class="form-label">Local de Atendimento <span class="required">*</span></label>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                             <div class="radio-item">
-                                <input type="radio" name="locationType" id="home" value="Casa">
+                                <input type="radio" name="locationType" id="home" value="Casa" required>
                                 <label for="home">🏠 Casa</label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" name="locationType" id="work" value="Trabalho">
+                                <input type="radio" name="locationType" id="work" value="Trabalho" required>
                                 <label for="work">💼 Trabalho</label>
                             </div>
                         </div>
@@ -1051,15 +1054,15 @@
             <!-- STEP 4: SCHEDULING -->
             <div class="step" id="step4">
                 <h2 class="step-title">Agendamento</h2>
-                <p class="step-subtitle">Escolha o melhor momento para receber nossa especialista.</p>
+                <p class="step-subtitle">Escolha o melhor momento para receber nossa especialista (Terças e Quintas).</p>
 
                 <div class="form-group">
-                    <label class="form-label">📅 Selecione o Dia</label>
+                    <label class="form-label">📅 Selecione o Dia <span class="required">*</span></label>
                     <div class="date-options" id="dateOptions"></div>
                 </div>
 
                 <div class="form-group" id="timeSlotGroup" style="display: none;">
-                    <label class="form-label">⏰ Período de Preferência</label>
+                    <label class="form-label">⏰ Período de Preferência <span class="required">*</span></label>
                     <div id="timeSlots"></div>
                 </div>
 
@@ -1139,15 +1142,9 @@
         const neighborhoods = {
             'Mauá': ["Centro", "Vila Bocaina", "Jardim Guapituba", "Parque São Vicente", "Vila Assis Brasil", "Jardim Zaíra", "Sertãozinho", "Vila Magini"],
             'Ribeirão Pires': ["Centro", "Jardim Mirante", "Vila Aurora", "Ouro Fino", "Quarta Divisão", "Jardim Alvorada", "Santa Luzia"],
-            'Santo André': ["Centro", "Bairro Jardim", "Campestre", "Vila Assunção", "Vila Alpina", "Parque das Nações", "Camilópolis", "Vila Gilda", "Vila Pires", "Jardim Bela Vista", "Utinga", "Vila Curuçá", "Vila Humaitá", "Jardim Santo André"]
+            'Santo André': ["Centro", "Bairro Jardim", "Campestre", "Vila Assunção", "Vila Alpina", "Parque das Nações", "Camilópolis", "Vila Gilda", "Vila Pires", "Jardim Bela Vista", "Utinga", "Vila Curuçá", "Vila Humaitá", "Jardim Santo André"],
+            'São Bernardo do Campo': ["Centro", "Assunção", "Baeta Neves", "Bangu", "Batistini", "Berlim", "Botujuru", "Brasilândia", "Camilópolis", "Demarchi", "Ferrazópolis", "Floresta", "Independência", "Jordanópolis", "Laranjeiras", "Nova Petrópolis", "Pauliceia", "Roca Grande", "Santa Terezinha", "Taboão", "Terra Preta", "Vila América", "Vila Euclides", "Vila Humaitá", "Vila Marcondes", "Vila Pires", "Vila Planalto", "Vila Santa Helena"]
         };
-
-        const appointmentDates = [
-            { day: 26, month: 'maio', label: 'TER' },
-            { day: 28, month: 'maio', label: 'QUI' },
-            { day: 2, month: 'junho', label: 'TER' },
-            { day: 4, month: 'junho', label: 'QUI' }
-        ];
 
         const timeSlots = [
             { label: 'Manhã (08:00 - 12:00)', value: 'Manhã (08:00 - 12:00)' },
@@ -1172,6 +1169,33 @@
             renderDateOptions();
             trackPageView();
         });
+
+        function getNextTuesdaysAndThursdays(startDate, numberOfDays) {
+            const dates = [];
+            let currentDate = new Date(startDate);
+
+            while (dates.length < numberOfDays) {
+                const dayOfWeek = currentDate.getDay();
+                // 2 = Tuesday, 4 = Thursday
+                if (dayOfWeek === 2 || dayOfWeek === 4) {
+                    const day = currentDate.getDate();
+                    const month = currentDate.getMonth();
+                    const year = currentDate.getFullYear();
+                    const dayName = dayOfWeek === 2 ? 'TER' : 'QUI';
+                    const monthNames = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+                    dates.push({
+                        day: day,
+                        month: monthNames[month],
+                        label: dayName,
+                        fullDate: new Date(year, month, day)
+                    });
+                }
+                currentDate.setDate(currentDate.getDate() + 1);
+            }
+
+            return dates;
+        }
 
         function startBooking() {
             document.getElementById('introductionSection').classList.add('hidden');
@@ -1234,6 +1258,10 @@
             const container = document.getElementById('dateOptions');
             container.innerHTML = '';
 
+            // Data de início: 02/06/2026
+            const startDate = new Date(2026, 5, 2); // Mês é 0-indexado, então 5 = junho
+            const appointmentDates = getNextTuesdaysAndThursdays(startDate, 4);
+
             appointmentDates.forEach((date, index) => {
                 const div = document.createElement('div');
                 div.className = 'date-option';
@@ -1245,7 +1273,7 @@
                 div.onclick = function() {
                     document.querySelectorAll('.date-option').forEach(d => d.classList.remove('selected'));
                     this.classList.add('selected');
-                    formData.selectedDate = `${date.day}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`;
+                    formData.selectedDate = `${date.day}/${date.fullDate.getMonth() + 1}/${date.fullDate.getFullYear()}`;
                     document.getElementById('timeSlotGroup').style.display = 'block';
                     renderTimeSlots();
                 };
@@ -1261,7 +1289,7 @@
                 const div = document.createElement('div');
                 div.className = 'radio-item';
                 div.innerHTML = `
-                    <input type="radio" name="timeSlot" id="slot${index}" value="${slot.value}">
+                    <input type="radio" name="timeSlot" id="slot${index}" value="${slot.value}" required>
                     <label for="slot${index}" style="cursor: pointer; margin: 0;">${slot.label}</label>
                 `;
                 div.querySelector('input').addEventListener('change', function() {
@@ -1301,7 +1329,7 @@
                 if (index === currentStep) step.classList.add('active');
             });
 
-            const totalSteps = 5;
+            const totalSteps = 6;
             const progress = ((currentStep) / totalSteps) * 100;
             document.querySelector('.progress-fill').style.width = progress + '%';
 
@@ -1314,7 +1342,7 @@
                 return;
             }
 
-            const coverageAreas = ['Mauá', 'Ribeirão Pires', 'Santo André'];
+            const coverageAreas = ['Mauá', 'Ribeirão Pires', 'Santo André', 'São Bernardo do Campo'];
             if (!coverageAreas.includes(formData.city)) {
                 alert('Desculpe, não atendemos essa região ainda.');
                 return;
@@ -1327,17 +1355,35 @@
         function validatePersonal() {
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
+            const birthDate = document.getElementById('birthDate').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const isCustomer = document.getElementById('isCustomer').value;
 
             if (!name || !phone) {
                 alert('Por favor, preencha nome e telefone');
                 return;
             }
 
+            if (!birthDate) {
+                alert('Por favor, preencha a data de nascimento');
+                return;
+            }
+
+            if (!email) {
+                alert('Por favor, preencha o e-mail');
+                return;
+            }
+
+            if (!isCustomer || isCustomer === '') {
+                alert('Por favor, indique se já é cliente');
+                return;
+            }
+
             formData.fullName = name;
             formData.phone = phone;
-            formData.email = document.getElementById('email').value;
-            formData.birthDate = document.getElementById('birthDate').value;
-            formData.isExistingCustomer = document.getElementById('isCustomer').value;
+            formData.email = email;
+            formData.birthDate = birthDate;
+            formData.isExistingCustomer = isCustomer;
             formData.specialNeedsDetails = document.getElementById('specialNeedsDetails').value;
 
             trackEvent('personal_data_entered', { name: name });
@@ -1347,16 +1393,28 @@
         function validateAddress() {
             const address = document.getElementById('address').value.trim();
             const number = document.getElementById('number').value.trim();
+            const complement = document.getElementById('complement').value.trim();
+            const locationType = document.querySelector('input[name="locationType"]:checked');
 
             if (!address || !number) {
                 alert('Por favor, preencha endereço e número');
                 return;
             }
 
+            if (!complement) {
+                alert('Por favor, preencha o complemento');
+                return;
+            }
+
+            if (!locationType) {
+                alert('Por favor, selecione o local de atendimento');
+                return;
+            }
+
             formData.address = address;
             formData.number = number;
-            formData.complement = document.getElementById('complement').value;
-            formData.locationType = document.querySelector('input[name="locationType"]:checked')?.value || '';
+            formData.complement = complement;
+            formData.locationType = locationType.value;
 
             const needs = [];
             document.querySelectorAll('input[name="needs"]:checked').forEach(cb => {
@@ -1391,6 +1449,7 @@
                 Nasc: ${formData.birthDate || 'Não informado'}<br>
                 ☎️ ${formData.phone}<br>
                 📧 ${formData.email || 'Não informado'}<br>
+                Cliente há: ${formData.isExistingCustomer}<br>
                 <strong>NECESSIDADES:</strong><br>
                 ${formData.needs.join(', ') || 'Não especificado'}
             `;
